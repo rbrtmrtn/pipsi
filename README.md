@@ -3,12 +3,12 @@
 pipsi = **pip** **s**cript **i**nstaller
 
 ## What does it do?
-**pipsi** makes installing python packages with global entry points painless. These are Python packages that expose an entry point through the command line such as [Pygments](https://pypi.org/project/Pygments/).
+**pipsi** makes installing Python packages with global entry points painless. These are Python packages that expose an entry point through the command line such as [Pygments](https://pypi.org/project/Pygments/).
 
-If you are installing Python packages globally for cli access, you almost certainly want to use pipsi instead of running `sudo pip ...`. so that you get
+If you are installing Python packages globally for CLI access, you almost certainly want to use pipsi instead of running `sudo pip ...` so that you get:
 * Isolated dependencies to guarantee no version conflicts
-* The ability to install packages globally without using sudo
-* The ability to uninstall a package and its dependencies without affecting other globally installed Python programs
+* The ability to install packages globally without using `sudo`
+* The ability to uninstall a package and its dependencies without affecting other globally-installed Python programs
 
 pipsi is not meant for installing libraries that will be imported by other Python modules.
 
@@ -18,7 +18,7 @@ pipsi is not meant for installing libraries that will be imported by other Pytho
 curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python
 ```
 
-to see installation options, including not automatically modifying the PATH environment variable
+To see installation options, including not automatically modifying the `PATH` environment variable:
 
 ```bash
 curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | python - --help
@@ -26,7 +26,7 @@ curl https://raw.githubusercontent.com/mitsuhiko/pipsi/master/get-pipsi.py | pyt
 
 ## How does it work?
 
-pipsi is a wrapper around virtualenv and pip which installs scripts provided by python packages into isolated virtualenvs so they do not pollute your system's Python packages.
+pipsi is a wrapper around virtualenv and pip which installs scripts provided by Python packages into isolated virtualenvs so they do not pollute your system's Python packages.
 
 pipsi installs each package into `~/.local/venvs/PKGNAME` and then symlinks all new scripts into `~/.local/bin` (these can be changed by `PIPSI_HOME` and `PIPSI_BIN_DIR` environment variables respectively).
 
